@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Search from './Search';
 
 const Nav = styled.nav`
     background-color: #db7093;
@@ -15,7 +16,7 @@ export const Navbar = () => {
                         alt=""
                         src="https://res.cloudinary.com/duzf4vfki/image/upload/v1630692325/Clases/geek_wctguy.png"
                         width="80" /></a>
-
+<Search/>
                     <button
                         className="navbar-toggler-icon" to=""></button>
                 </div>

@@ -20,6 +20,10 @@ export const employeesReducers = (state = initialState, action) => {
             return {
                 employees: state.employees.filter(emp => emp.correo !== action.payload)
             }
+            case typesEmpleoyees.search:
+                return {
+                    employees:action.payload
+                }
         default:
             return state;
     }

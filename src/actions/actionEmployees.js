@@ -2,6 +2,33 @@ import  {typesEmpleoyees} from '../types/types';
 import { db } from "../firebase/firebaseConfig";
 import { addDoc,collection,getDocs,query,where,doc,deleteDoc} from "@firebase/firestore";
 
+// Search
+export const searchAsync = (empleado) => {
+    console.log('empleado', empleado)
+    return async (dispatch) => {
+        const traerCollection = collection(db,'employees')
+        const q = query(traerCollection, where('nombre', '>=', empleado, '<',  empleado + 'z'))
+        const datos = await getDocs(q)
+
+        const empleados = []
+        datos.forEach((docu) => {
+            empleados.push(docu.data())
+        })
+        dispatch(searchSync(empleados))
+        console.log('empleados', empleados)
+
+    }
+}
+
+
+export const searchSync = (empleado) => {
+    return {
+        type: typesEmpleoyees.search,
+        payload: empleado
+    }
+}
+
+
 //DELETE
 
 export const deleteEmployeeAsync = (email) =>{
@@ -74,3 +101,4 @@ export const registerEmployeeSync = (employee) => {
     }
 
 }
+

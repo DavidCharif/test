@@ -28,15 +28,16 @@ export const List = () => {
                         employees.map((e, i) => (
                             <tr key={i}>
                                 <td><img src={e.url} width="50" height="50" alt=""/></td>
-                                <td>{e.descripcion}</td>
                                 <td>{e.nombre}</td>
                                 <td>{e.correo}</td>
+                                <td>{e.descripcion}</td>
+                                <td>
                                 <input
                                     value="Delete"
                                     type="button"
                                     className="btn btn-outline-dark"
                                     onClick={() => dispatch(deleteEmployeeAsync(e.correo))}
-                                />
+                                /></td>
                             </tr>
                         ))
                     }

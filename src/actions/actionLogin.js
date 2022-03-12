@@ -19,6 +19,24 @@ export const loginEmailPassword = (email,password) =>{
        })
     }
 }
+// export const logoutAsincrono = () =>{
+//     
+//     return (dispatch) =>{
+// 
+//        const auth = getAuth();
+//        
+//         signInWithEmailAndPassword(auth,email,password)
+//        .then(({user}) =>{
+//              dispatch(
+//                 loginSincrono(user.uid,user.displayName)
+//              ) 
+//              console.log('Bienvenid@');
+//        })
+//        .catch(e =>{
+//             console.log('El usuario no existe');
+//        })
+//     }
+// }
 
 export const loginGoogle = () => {
 
@@ -47,5 +65,9 @@ export const loginSincrono = (id, displayname) => {
 }
 
 
-
+export const logoutSincrono = () => {
+    return{
+        type: types.logout
+    }
+}
 
